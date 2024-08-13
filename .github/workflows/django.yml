@@ -13,8 +13,7 @@ jobs:
         python-version: ["3.10"]
 
     steps:
-    steps:
-      - name: Checkout projeto
+      - name: Checkout project
         uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
@@ -37,11 +36,11 @@ jobs:
 
       - name: Run tests
         run: |
-          covarege run python mysite/manage.py test
+          coverage run mysite/manage.py test
 
-    - name: Upload coverage to Codecov
-      run: |
-        coverage xml
-        codecov
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload coverage to Codecov
+        run: |
+          coverage xml
+          codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
