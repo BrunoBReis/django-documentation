@@ -37,10 +37,12 @@ jobs:
       - name: Run tests
         run: |
           coverage run mysite/manage.py test
-
-      - name: Upload coverage to Codecov
-        run: |
           coverage xml
           codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./mysite/coverage.xml
+          fail_ci_if_error: true
