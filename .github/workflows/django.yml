@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  tests:
+  u-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -40,9 +40,9 @@ jobs:
           coverage xml
           codecov
 
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./mysite/coverage.xml
-          fail_ci_if_error: true
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            files: ./mysite/coverage.xml
+            fail_ci_if_error: true
