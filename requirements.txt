@@ -2,7 +2,6 @@ asgiref==3.8.1
 astroid==3.2.4
 dill==0.3.8
 Django==5.0.7
-idna==3.7
 isort==5.13.2
 mccabe==0.7.0
 platformdirs==4.2.2
